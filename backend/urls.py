@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Course.views import CourseListViewSet, CourseDetailViewSet, SyllabusViewSet, LessonViewSet, FileUploadViewSet, PageViewSet
 from Class.views import ClassViewSet, PostViewSet, CommentViewSet, JoinRequestViewSet, ActivityViewSet, SubmissionViewSet, AttachmentViewSet
+from DailyChallenge.views import DailyChallengeViewSet, DailyChallengeQuestionViewSet, DailyChallengeLeaderboardViewSet
 from Mocktest.views import MockTestViewSet, MockQuestionsViewSet, MockTestScoresViewSet, DifficultyViewSet, submit_mocktest
 from User.views import StudentViewSet, TeacherViewSet
 from Course import views
@@ -33,6 +34,9 @@ router.register(r'activities', ActivityViewSet, basename='activities')
 router.register(r'submissions', SubmissionViewSet, basename='submissions')
 router.register(r'attachments', AttachmentViewSet)
 router.register(r'pages', PageViewSet, basename='page')
+router.register(r'daily-challenges', DailyChallengeViewSet, basename='daily-challenges')
+router.register(r'daily-challenge-questions', DailyChallengeQuestionViewSet, basename='daily-challenge-questions')
+router.register(r'leaderboards', DailyChallengeLeaderboardViewSet, basename='leaderboards')
 
 
 #pagkuha og indibidwal nga mga kurso
