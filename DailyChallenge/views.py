@@ -2,7 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.utils import timezone
-from User.models import User
+from User.models import User, Student
 from .models import DailyChallenge, DailyChallengeQuestion, DailyChallengeLeaderboard
 from .serializer import DailyChallengeSerializer, DailyChallengeQuestionSerializer, DailyChallengeLeaderboardSerializer
 
@@ -28,8 +28,8 @@ class DailyChallengeViewSet(viewsets.ModelViewSet):
         answers = request.data.get('answers')
 
         try:
-            daily_challenge = DailyChallenge.objects.get(id=challenge_id)
-            student = User.objects.get(id=student_id)
+            daily_challenge = DailyChallenge.objects.get(challengeID=challenge_id)
+            student = Student.objects.get(user_ptr_id=student_id)
 
             correct_answers = 0
             total_questions = 0

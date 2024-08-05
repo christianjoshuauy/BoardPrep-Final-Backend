@@ -39,7 +39,7 @@ class DailyChallengeLeaderboard(models.Model):
     daily_challenge = models.ForeignKey(DailyChallenge, on_delete=models.CASCADE, related_name='leaderboard')
     student = models.ForeignKey('User.Student', on_delete=models.CASCADE, related_name='daily_challenge_scores')
     score = models.FloatField()
-    completion_time = models.DurationField()
+    completion_time = models.DateTimeField()
     totalQuestions = models.IntegerField()
 
     class Meta:
